@@ -8,6 +8,8 @@
 module.exports = {
 	//tableName : 'test',
     attributes: {
+    	id : 'STRING',
     	name : 'STRING'
-    }
+    },
+    autpPK : true
 };

@@ -6,15 +6,21 @@
  */
 
 module.exports = {
+    /**
+     *  index默认页面
+     *  http://ip:1337/test
+     */
     index: function(req, res) {
-        console.log('111');
-        var test = Test.create({
-            id: 'aaa'
-        }).exec(console.log);
-        console.log(test);
         return res.ok('Hello');
     },
-    create: function(req, res) {
+    /**
+     *
+     * 调用创建
+     * @param  {[type]} 
+     * @param  {[type]}
+     * @return {[type]}
+     */
+    save: function(req, res) {
         var name = req.param('name');
         Test.create({
             name: name
@@ -28,6 +34,12 @@ module.exports = {
         });
 
     },
+    /**
+     * 匹配查询
+     * @param  {[type]}
+     * @param  {[type]}
+     * @return {[type]}
+     */
     findOne: function(req, res) {
         var name = req.param('name');
         Test.findOne({
@@ -40,6 +52,12 @@ module.exports = {
             }
         });
     },
+    /**
+     * 分页查询
+     * @param  {[type]}
+     * @param  {[type]}
+     * @return {[type]}
+     */
     page: function(req, res) {
         var name = req.param('name');
         var start = req.param('start') || 0;
@@ -51,6 +69,13 @@ module.exports = {
             return res.json(results);
         });
     },
+    /**
+     * 记录数查询
+     * 
+     * @param  {[type]}
+     * @param  {[type]}
+     * @return {[type]}
+     */
     count: function(req, res) {
         var name = req.param('name');
         Test.count({
@@ -66,12 +91,50 @@ module.exports = {
             }
         });
     },
+    /**
+     * 执行原生SQL
+     * type: 默认为查询全部
+     *       d    -- 删除一个，传入name
+     *       da   -- 删除全部
+     *       
+     * @param  {[type]}
+     * @param  {[type]}
+     * @return {[type]}
+     */
     query: function(req, res) {
-        Test.query('SELECT name FROM test', function(err, results) {
-            if (err) return res.serverError(err);
-            return res.ok(results);
-        });
+        var type = req.param('type');
+        var sql = 'SELECT name FROM test ';
+        var values;
+        if ('da' == type) {
+            sql = 'DELETE FROM TEST ';
+        } else if ('d' == type) {
+            var name = req.param('name');
+            values = [name];
+            sql = 'DELETE FROM TEST where name = ? ';
+        } else if ('s' == type) {
+        	var name = req.param('name');
+        	values = [name];
+            sql += 'where name= ? ';
+        }
+        if (values) {
+            Test.query(sql, values,function(err, results) {
+                if (err) return res.serverError(err);
+                return res.ok(results);
+            });
+        } else {
+            Test.query(sql, function(err, results) {
+                if (err) return res.serverError(err);
+                return res.ok(results);
+            });
+        }
+
     },
+    /**
+     * 销毁对象
+     * @param  {[type]}
+     * @param  {[type]}
+     * @return {[type]}
+     */
     destroy: function(req, res) {
         var name = req.param('name');
         Test.destroy({
