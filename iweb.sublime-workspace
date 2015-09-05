@@ -11,6 +11,49 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "config/http.js",
+			"settings":
+			{
+				"buffer_size": 6423,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "223re23wc/**\n * app.js\n *\n * Use `app.js` to run your app without `sails lift`.\n * To start the server, run: `node app.js`.\n *\n * This is handy in situations where the sails CLI is not relevant or useful.\n *\n * For example:\n *   => `node app.js`\n *   => `forever start app.js`\n *   => `node debug app.js`\n *   => `modulus deploy`\n *   => `heroku scale`\n *\n *\n * The same command-line arguments are supported, e.g.:\n * `node app.js --silent --port=80 --prod`\n */\n\n// Ensure we're in the project directory, so relative paths work as expected\n// no matter where we actually lift from.\nprocess.chdir(__dirname);\n\n// Ensure a \"sails\" can be located:\n(function() {\n  var sails;\n  try {\n    sails = require('sails');\n  } catch (e) {\n    console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');\n    console.error('To do that, run `npm install sails`');\n    console.error('');\n    console.error('Alternatively, if you have sails installed globally (i.e. you did `npm install -g sails`), you can use `sails lift`.');\n    console.error('When you run `sails lift`, your app will still use a local `./node_modules/sails` dependency if it exists,');\n    console.error('but if it doesn\\'t, the app will run with the global sails instead!');\n    return;\n  }\n  // Try to get `rc` dependency\n  var rc;\n  try {\n    rc = require('rc');\n  } catch (e0) {\n    try {\n      rc = require('sails/node_modules/rc');\n    } catch (e1) {\n      console.error('Could not find dependency: `rc`.');\n      console.error('Your `.sailsrc` file(s) will be ignored.');\n      console.error('To resolve this, run:');\n      console.error('npm install rc --save');\n      rc = function () { return {}; };\n    }\n  }\n\n\n  // Start server\n  sails.lift(rc('sails'));\n})();\n",
+			"file": "app.js",
+			"file_size": 1801,
+			"file_write_time": 130837532150000000,
+			"settings":
+			{
+				"buffer_size": 1810,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/policies.js",
+			"settings":
+			{
+				"buffer_size": 2155,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/globals.js",
+			"settings":
+			{
+				"buffer_size": 3303,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "api/controllers/WechatController.js",
+			"settings":
+			{
+				"buffer_size": 3453,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -66,10 +109,44 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/yangming/Documents/workspace/apps/iweb"
+		"/Users/yangming/Documents/workspace/apps/iweb",
+		"/Users/yangming/Documents/workspace/apps/iweb/api",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/controllers",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/models",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/policies",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/responses",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/app",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/app/private",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/hooks",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/hooks/request",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/hooks/responses",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/hooks/responses/defaults",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/lib/router",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/wechat/lib"
 	],
 	"file_history":
 	[
+		"/Users/yangming/Documents/workspace/apps/iweb/api/policies/sessionAuth.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/models/Test.js",
+		"/Users/yangming/Documents/workspace/apps/webot-example/node_modules/weixin-robot/lib/weixin.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/controllers/WechatController.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/wechat/lib/wechat.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/config/policies.js",
+		"/Users/yangming/Documents/workspace/apps/iweb-java/pom.xml",
+		"/Users/yangming/Documents/workspace/apps/webot-example/app.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/config/models.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/controllers/TestController.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/controllers/TestWechatController.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/config/http.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/controllers/TestController.html",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/wechat/node_modules/wechat-crypto/lib/msg_crypto.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/README.md",
+		"/Users/yangming/Documents/workspace/apps/iweb/config/connections.js",
+		"/Users/yangming/Documents/workspace/apps/iweb/api/controllers/README.md",
+		"/Users/yangming/Documents/workspace/apps/iweb/package.json",
+		"/Users/yangming/Documents/workspace/apps/iweb/node_modules/sails/node_modules/express/package.json",
 		"/Users/yangming/Documents/workspace/apps/rsa-server/private.perm",
 		"/Users/yangming/Documents/workspace/prjs/crypto/node-rsa/app.js",
 		"/Users/yangming/Documents/workspace/apps/iweb/api/models/Login.js",
@@ -86,13 +163,14 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -100,6 +178,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bodyParser",
+			"console",
+			"next",
+			"echostr",
+			"console.log(1)",
+			"Invalid",
+			"3",
+			"console.log(",
+			"111",
+			"getMessage",
+			"respond",
+			"_respond",
+			"serveEncrypt",
+			"checkSignature",
 			"();\n",
 			"chanl_cust_no",
 			"genrsa",
@@ -135,8 +227,164 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "config/http.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6423,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1760,
+								1770
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1770.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1810,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9,
+								9
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 19.0,
+						"translation.y": 62.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "config/policies.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1325,
+								1325
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 150.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config/globals.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 330.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "api/controllers/WechatController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2161,
+								843
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 13.0,
+						"translation.y": 101.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -146,7 +394,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
@@ -221,7 +469,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 200.0,
+	"side_bar_width": 401.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
